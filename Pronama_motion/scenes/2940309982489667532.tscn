@@ -1,14 +1,441 @@
-[gd_scene load_steps=3 format=3 uid="uid://buxu4fx841xr1"]
+[gd_scene load_steps=38 format=3 uid="uid://yl45qufgjjm0"]
 
-[ext_resource type="PackedScene" uid="uid://bafodttkroyus" path="res://Pronama_motion/character/2940309982489667532.vrm" id="1_55y7p"]
-[ext_resource type="Animation" uid="uid://bfyv28j7wm2uu" path="res://Pronama_motion/melt.tres" id="2_nj10o"]
+[ext_resource type="PackedScene" uid="uid://c6ys35u7pu4dx" path="res://Pronama_motion/characters/2940309982489667532.vrm" id="1_8400p"]
+[ext_resource type="Script" path="res://addons/vrm/vrm_springbone.gd" id="2_8nyai"]
+[ext_resource type="Script" path="res://addons/vrm/vrm_collidergroup.gd" id="3_ljqx2"]
+[ext_resource type="Animation" uid="uid://bfyv28j7wm2uu" path="res://Pronama_motion/melt.tres" id="4_tvnjv"]
 
-[node name="2940309982489667532" instance=ExtResource( "1_55y7p" )]
-
-[node name="secondary" parent="." index="1"]
-spring_bones = []
+[sub_resource type="Resource" id="Resource_pit88"]
+resource_name = "Bust"
+script = ExtResource( "2_8nyai" )
+comment = "Bust"
+stiffness_force = 0.75
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.02
+root_bones = ["J_Sec_L_Bust1", "J_Sec_R_Bust1"]
 collider_groups = []
 
-[node name="anim" parent="." index="2"]
-anims/melt = ExtResource( "2_nj10o" )
+[sub_resource type="Resource" id="Resource_bv1h4"]
+resource_name = "J_Bip_L_UpperLeg"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_L_UpperLeg"
+sphere_colliders = [Plane(0.0131937, -0.229283, -0.00411806, 0.081), Plane(0.0419605, -0.345782, -0.00479601, 0.081), Plane(0.0659329, -0.442865, -0.00536098, 0.081)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_0hcre"]
+resource_name = "J_Bip_R_UpperLeg"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_R_UpperLeg"
+sphere_colliders = [Plane(-0.0131943, -0.229288, -0.00411803, 0.081), Plane(-0.0419139, -0.345798, -0.0048344, 0.081), Plane(-0.0658468, -0.44289, -0.00543138, 0.081)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_hvxpy"]
+resource_name = "Skirt"
+script = ExtResource( "2_8nyai" )
+comment = "Skirt"
+stiffness_force = 0.5
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.02
+root_bones = ["J_Sec_L_SkirtBack", "J_Sec_L_SkirtFront", "J_Sec_L_SkirtSide", "J_Sec_R_SkirtBack", "J_Sec_R_SkirtFront", "J_Sec_R_SkirtSide"]
+collider_groups = [SubResource( "Resource_bv1h4" ), SubResource( "Resource_0hcre" )]
+
+[sub_resource type="Resource" id="Resource_natd7"]
+resource_name = "J_Bip_C_Head"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_C_Head"
+sphere_colliders = [Plane(-3.53029e-08, 0.100247, -0.0125636, 0.1)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_uybt7"]
+resource_name = "J_Bip_L_UpperArm"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_L_UpperArm"
+sphere_colliders = [Plane(0.000454552, -0.00994027, -0.000991596, 0.05), Plane(-0.0744616, -0.0134286, -0.00036309, 0.05), Plane(-0.149378, -0.016917, 0.000265413, 0.05)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_5fe5i"]
+resource_name = "J_Bip_R_UpperArm"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_R_UpperArm"
+sphere_colliders = [Plane(-0.000454605, -0.00994051, -0.000991534, 0.05), Plane(0.0744616, -0.0134286, -0.000363101, 0.05), Plane(0.149378, -0.0169169, 0.000265336, 0.05)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_2pov5"]
+resource_name = "J_Bip_L_LowerArm"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_L_LowerArm"
+sphere_colliders = [Plane(2.98023e-08, 0, -9.31323e-09, 0.03), Plane(-0.0498304, -0.00010848, 0.0041133, 0.035), Plane(-0.0996608, -0.000217199, 0.00822662, 0.03), Plane(-0.149491, -0.000325799, 0.0123399, 0.03)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_fitby"]
+resource_name = "J_Bip_R_LowerArm"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_R_LowerArm"
+sphere_colliders = [Plane(0, -1.19209e-07, 5.58794e-09, 0.03), Plane(0.0498304, -0.0001086, 0.00411319, 0.035), Plane(0.0996608, -0.000217319, 0.00822637, 0.03), Plane(0.149491, -0.00032568, 0.0123395, 0.03)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_nkgnu"]
+resource_name = "J_Bip_L_Hand"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_L_Hand"
+sphere_colliders = [Plane(-0.0199323, -0.000114202, 0.00164032, 0.03)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_0r46k"]
+resource_name = "J_Bip_R_Hand"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_R_Hand"
+sphere_colliders = [Plane(0.019932, -0.000113964, 0.00164028, 0.03)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_lasok"]
+resource_name = "J_Bip_C_UpperChest"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_C_UpperChest"
+sphere_colliders = [Plane(3.20142e-10, 0.00279737, 0.00960075, 0.1), Plane(-0.05, 0.0596075, -0.0277838, 0.07), Plane(0.05, 0.0596075, -0.0277838, 0.07)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_pjd0g"]
+resource_name = "J_Bip_C_Spine"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_C_Spine"
+sphere_colliders = [Plane(-5.821e-11, 1.19209e-07, 4.65661e-09, 0.12)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_0qobu"]
+resource_name = "J_Bip_C_Neck"
+script = ExtResource( "3_ljqx2" )
+skeleton_or_node = NodePath("../Skeleton3D")
+bone = "J_Bip_C_Neck"
+sphere_colliders = [Plane(-7.53789e-09, 0.028092, 0.0167283, 0.05)]
+gizmo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_iqo3k"]
+resource_name = "HairJoint-a04788eb-7a77-4b6e-95a1-3f403354b3fc"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.024
+root_bones = ["HairJoint-a04788eb-7a77-4b6e-95a1-3f403354b3fc"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_ntlm0"]
+resource_name = "HairJoint-c35bc030-3da3-4d49-ab7c-4aabeedc2de1"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.024
+root_bones = ["HairJoint-c35bc030-3da3-4d49-ab7c-4aabeedc2de1"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_oa72l"]
+resource_name = "HairJoint-f24a30fb-6c62-40b1-b06f-0e969332fc96"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.024
+root_bones = ["HairJoint-f24a30fb-6c62-40b1-b06f-0e969332fc96"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_0m7ok"]
+resource_name = "HairJoint-0db13061-2c8b-4731-b8fe-864e6080e928"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.012
+root_bones = ["HairJoint-0db13061-2c8b-4731-b8fe-864e6080e928"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_m6np1"]
+resource_name = "HairJoint-1275757f-6fe5-4d78-be03-7138f9d26007"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.012
+root_bones = ["HairJoint-1275757f-6fe5-4d78-be03-7138f9d26007"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_ybrue"]
+resource_name = "HairJoint-7c3e840e-e897-4444-9f28-c78b33eaa6d6"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.024
+root_bones = ["HairJoint-7c3e840e-e897-4444-9f28-c78b33eaa6d6"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_idt0h"]
+resource_name = "HairJoint-5b7d4f8d-4a41-452f-b278-3e04ef74d159"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.024
+root_bones = ["HairJoint-5b7d4f8d-4a41-452f-b278-3e04ef74d159"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_y2aqb"]
+resource_name = "HairJoint-0436323a-45d9-4b3f-9caf-8c613e7ab228"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.0240705
+root_bones = ["HairJoint-0436323a-45d9-4b3f-9caf-8c613e7ab228"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_73yf4"]
+resource_name = "HairJoint-92a4c79d-a4ef-4650-87e3-545a0fb44ae4"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.024
+root_bones = ["HairJoint-92a4c79d-a4ef-4650-87e3-545a0fb44ae4"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_x6bnn"]
+resource_name = "HairJoint-13e01abf-f503-4a07-a66f-e746d3276851"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.012
+root_bones = ["HairJoint-13e01abf-f503-4a07-a66f-e746d3276851"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_crnwk"]
+resource_name = "HairJoint-098820b3-4aa3-48c9-94a4-2c89e3d2ac8b"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.012
+root_bones = ["HairJoint-098820b3-4aa3-48c9-94a4-2c89e3d2ac8b"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_128ft"]
+resource_name = "HairJoint-39978425-d125-4c40-8806-32f61b76cdc5"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.012
+root_bones = ["HairJoint-39978425-d125-4c40-8806-32f61b76cdc5"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_oifms"]
+resource_name = "HairJoint-6d9c818f-ed94-4f17-a332-09e58964f5de"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.012
+root_bones = ["HairJoint-6d9c818f-ed94-4f17-a332-09e58964f5de"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="Resource" id="Resource_0r6f2"]
+resource_name = "HairJoint-e9356468-a496-4b6f-b576-dc4a5b963d4d"
+script = ExtResource( "2_8nyai" )
+comment = ""
+stiffness_force = 0.4
+gravity_power = 0.0
+gravity_dir = Vector3(0, -1, 0)
+drag_force = 0.4
+skeleton = NodePath("../Skeleton3D")
+center_bone = "J_Bip_C_Spine"
+center_node = NodePath("")
+hit_radius = 0.012
+root_bones = ["HairJoint-e9356468-a496-4b6f-b576-dc4a5b963d4d"]
+collider_groups = [SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_fitby" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_lasok" ), SubResource( "Resource_pjd0g" ), SubResource( "Resource_0qobu" )]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7041k"]
+filters = []
+animation = &"melt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uyr08"]
+filters = []
+animation = &"melt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xx8mo"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_onp1r"]
+states/melt/node = SubResource( "AnimationNodeAnimation_uyr08" )
+states/melt/position = Vector2(221.5, 69.625)
+"states/melt 2/node" = SubResource( "AnimationNodeAnimation_7041k" )
+"states/melt 2/position" = Vector2(360.5, 70.25)
+transitions = [&"melt 2", &"melt", SubResource( "AnimationNodeStateMachineTransition_xx8mo" )]
+start_node = "melt"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ivlkv"]
+
+[node name="Node3D" type="Node3D"]
+script = null
+
+[node name="2940309982489667532" parent="." instance=ExtResource( "1_8400p" )]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="2940309982489667532" index="0"]
+bones/1/rotation = Quaternion(4.5e-05, 0.000144, 0.023465, 0.999725)
+bones/2/rotation = Quaternion(-0.041066, 0.0506054, -0.0205289, 0.997663)
+bones/9/rotation = Quaternion(-0.000704026, -9.69426e-05, -0.00303241, 0.999995)
+bones/10/rotation = Quaternion(0.0535588, -0.0136703, -0.0351111, 0.997853)
+bones/11/rotation = Quaternion(-0.000230871, -4.16911e-08, -5.7617e-08, 1)
+bones/12/rotation = Quaternion(-0.000230871, -4.16911e-08, -5.7617e-08, 1)
+bones/57/rotation = Quaternion(-0.0284134, 0.0171232, -0.00099498, 0.999449)
+bones/58/rotation = Quaternion(0.141379, 0.257883, 0.551007, 0.78096)
+bones/59/rotation = Quaternion(0.177691, -0.160931, 0.0260647, 0.970489)
+bones/60/rotation = Quaternion(0.00268589, 0.0532407, -0.109912, 0.992511)
+bones/61/rotation = Quaternion(-0.00313034, -0.0141848, 0.0601605, 0.998083)
+bones/62/rotation = Quaternion(0, 0, 0.0849007, 0.99639)
+bones/63/rotation = Quaternion(0, 0, 2.7233e-06, 1)
+bones/65/rotation = Quaternion(0.147822, 0.0413983, 0.229657, 0.961089)
+bones/66/rotation = Quaternion(-9.99983e-07, -1e-06, 0.290742, 0.956801)
+bones/67/rotation = Quaternion(0, 0, 0.116098, 0.993238)
+bones/69/rotation = Quaternion(-0.0084808, 0.0390782, 0.169045, 0.984796)
+bones/70/rotation = Quaternion(0, 0, 0.143459, 0.989657)
+bones/71/rotation = Quaternion(0, 0, 0.0613517, 0.998116)
+bones/73/rotation = Quaternion(-0.0147125, 0.0252205, 0.237454, 0.97096)
+bones/74/rotation = Quaternion(-0.00695978, -0.0368885, 0.100874, 0.994191)
+bones/75/rotation = Quaternion(0, 0, 0.0749327, 0.997189)
+bones/78/rotation = Quaternion(-0.0142499, 0.0921741, 0.188794, 0.977577)
+bones/79/rotation = Quaternion(-0.00107022, 0.116875, 0.0411332, 0.992294)
+bones/81/rotation = Quaternion(-0.00658416, 0.0421349, 0.000231005, 0.99909)
+bones/82/rotation = Quaternion(0.28736, -0.182325, -0.535105, 0.773204)
+bones/83/rotation = Quaternion(-0.0385522, 0.210491, -0.00620588, 0.976816)
+bones/84/rotation = Quaternion(-0.29366, -0.0193215, 0.0102154, 0.95566)
+bones/85/rotation = Quaternion(-0.000791676, 0.0376014, -0.0978809, 0.994487)
+bones/86/rotation = Quaternion(0, 0, -0.0689903, 0.997617)
+bones/87/rotation = Quaternion(0, 0, -3.26369e-06, 1)
+bones/89/rotation = Quaternion(0.147822, -0.041398, -0.229656, 0.961089)
+bones/90/rotation = Quaternion(-9.19565e-07, 9.61773e-07, -0.290739, 0.956802)
+bones/91/rotation = Quaternion(0, 0, -0.121717, 0.992565)
+bones/93/rotation = Quaternion(-0.00848081, -0.0390781, -0.169044, 0.984797)
+bones/94/rotation = Quaternion(0, 0, -0.111867, 0.993723)
+bones/95/rotation = Quaternion(0, 0, -0.0562155, 0.998419)
+bones/97/rotation = Quaternion(-0.0147126, -0.0252204, -0.237454, 0.97096)
+bones/98/rotation = Quaternion(-0.00833981, 0.044204, -0.0798364, 0.995793)
+bones/99/rotation = Quaternion(0, 0, -0.0806198, 0.996745)
+bones/102/rotation = Quaternion(-0.0142497, -0.0921743, -0.188794, 0.977577)
+bones/103/rotation = Quaternion(-0.000744834, -0.116653, -0.0404982, 0.992347)
+bones/105/rotation = Quaternion(0.19565, 0.00161143, -0.0124667, 0.980593)
+bones/112/rotation = Quaternion(-0.344272, 0, 0, 0.93887)
+bones/113/rotation = Quaternion(-0.0854005, 0.0332683, -0.0193116, 0.995604)
+bones/116/rotation = Quaternion(-0.0356943, 0.0219138, -0.0282305, 0.998724)
+bones/123/rotation = Quaternion(-0.118516, 0, 0, 0.992952)
+bones/124/rotation = Quaternion(-0.129718, 0.0960956, 0.0871068, 0.983032)
+
+[node name="secondary" parent="2940309982489667532" index="1"]
+spring_bones = [SubResource( "Resource_pit88" ), SubResource( "Resource_hvxpy" ), SubResource( "Resource_iqo3k" ), SubResource( "Resource_ntlm0" ), SubResource( "Resource_oa72l" ), SubResource( "Resource_0m7ok" ), SubResource( "Resource_m6np1" ), SubResource( "Resource_ybrue" ), SubResource( "Resource_idt0h" ), SubResource( "Resource_y2aqb" ), SubResource( "Resource_73yf4" ), SubResource( "Resource_x6bnn" ), SubResource( "Resource_crnwk" ), SubResource( "Resource_128ft" ), SubResource( "Resource_oifms" ), SubResource( "Resource_0r6f2" )]
+collider_groups = [SubResource( "Resource_pjd0g" ), SubResource( "Resource_lasok" ), SubResource( "Resource_0qobu" ), SubResource( "Resource_natd7" ), SubResource( "Resource_uybt7" ), SubResource( "Resource_2pov5" ), SubResource( "Resource_nkgnu" ), SubResource( "Resource_5fe5i" ), SubResource( "Resource_fitby" ), SubResource( "Resource_0r46k" ), SubResource( "Resource_bv1h4" ), SubResource( "Resource_0hcre" )]
+
+[node name="anim" parent="2940309982489667532" index="2"]
+anims/melt = ExtResource( "4_tvnjv" )
 blend_times = []
+
+[node name="AnimationTree" type="AnimationTree" parent="2940309982489667532"]
+tree_root = SubResource( "AnimationNodeStateMachine_onp1r" )
+anim_player = NodePath("../anim")
+active = true
+process_callback = 0
+root_motion_track = NodePath("Skeleton3D:J_Bip_C_Hips")
+parameters/playback = SubResource( "AnimationNodeStateMachinePlayback_ivlkv" )
+script = null
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77296, 1.21598)
+script = null
+
+[editable path="2940309982489667532"]

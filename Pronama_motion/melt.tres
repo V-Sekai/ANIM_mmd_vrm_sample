@@ -1,7 +1,7 @@
 [gd_resource type="Animation" format=3 uid="uid://bfyv28j7wm2uu"]
 
 [resource]
-resource_name = "melt"
+resource_name = "Melt"
 length = 261.633
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton3D/Facebaked:blend_shapes/morph_0")

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bafodttkroyus"
-path="res://.godot/imported/2940309982489667532.vrm-ad6b09124512eaff38a0161f8c8157fd.scn"
+uid="uid://c6ys35u7pu4dx"
+path="res://.godot/imported/2940309982489667532.vrm-aac5badeb1995a9ae30f3810ee6abe36.scn"
 
 [deps]
 
-source_file="res://Pronama_motion/character/2940309982489667532.vrm"
-dest_files=["res://.godot/imported/2940309982489667532.vrm-ad6b09124512eaff38a0161f8c8157fd.scn"]
+source_file="res://Pronama_motion/characters/2940309982489667532.vrm"
+dest_files=["res://.godot/imported/2940309982489667532.vrm-aac5badeb1995a9ae30f3810ee6abe36.scn"]
 
 [params]
 
