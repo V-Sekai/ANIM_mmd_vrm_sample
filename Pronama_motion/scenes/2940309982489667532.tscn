@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://buxu4fx841xr1"]
+
+[ext_resource type="PackedScene" uid="uid://bafodttkroyus" path="res://Pronama_motion/character/2940309982489667532.vrm" id="1_55y7p"]
+[ext_resource type="Animation" uid="uid://bfyv28j7wm2uu" path="res://Pronama_motion/melt.tres" id="2_nj10o"]
+
+[node name="2940309982489667532" instance=ExtResource( "1_55y7p" )]
+
+[node name="secondary" parent="." index="1"]
+spring_bones = []
+collider_groups = []
+
+[node name="anim" parent="." index="2"]
+anims/melt = ExtResource( "2_nj10o" )
+blend_times = []
